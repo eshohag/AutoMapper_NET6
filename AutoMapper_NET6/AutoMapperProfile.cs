@@ -9,7 +9,9 @@ namespace AutoMapper_NET6
         {
             CreateMap<Student, StudentViewModel>()
                    .ForMember(dest => dest.FullName, opt => opt.MapFrom(src =>
-                       $"{src.FirstName} {src.LastName}"));
+                       $"{src.FirstName} {src.LastName}"))
+                   .ReverseMap().
+                   ForMember(dest => dest.FirstName, opt => opt.MapFrom(src =>$"{src.FullName}"));
         }
     }
 }

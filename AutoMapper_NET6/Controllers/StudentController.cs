@@ -24,6 +24,12 @@ namespace AutoMapper_NET6.Controllers
             originalDB.Add(new Student() { Id = 2, FirstName = "Md Shohag", LastName = "Hassan", Email = "eshohag@outlook.com" });
 
             var viewData = _mapper.Map<List<StudentViewModel>>(originalDB);
+
+            var reverse=new List<StudentViewModel>();
+            reverse.Add(new StudentViewModel() { FullName = "Md Shohag Mia", Email = "eshohag@outlook.com" });
+            var reverseData=_mapper.Map<List<Student>>(reverse);
+
+
             return Ok(viewData);
         }
     }
